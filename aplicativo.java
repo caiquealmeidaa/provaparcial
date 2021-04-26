@@ -14,7 +14,7 @@ public class aplicativo {
 		do {
 			opcao = parseInt(showInputDialog(gerarMenu()));
 			if (opcao < 1 || opcao > 6) {
-				showMessageDialog(null, " !opção inválida! ");
+				showMessageDialog(null, " !opÃ§Ã£o invÃ¡lida! ");
 			} else {
 				switch (opcao) {
 				case 1:
@@ -63,16 +63,17 @@ public class aplicativo {
 		temp += "6. Finalizar\n";
 		return temp;
 	}
-
+       // nÃ£o consegui criar uma seletor de pessoa fÃ­sica e juridica, quando fiz ficou com diversos erros
+	
 	public static void cadastrar(reserva[] reservas, int posicao) {
 		reservas[posicao] = new reserva();
 
 		reservas[posicao].nome = showInputDialog("Nome:");
 		reservas[posicao].cpf = showInputDialog("CPF:");
 		reservas[posicao].telefone = showInputDialog("Telefone:");
-		reservas[posicao].pagamento = parseInt(showInputDialog("Como irá pagar? \n 1. À Vista \n 2. Parcelado"));
+		reservas[posicao].pagamento = parseInt(showInputDialog("Como irÃ¡ pagar? \n 1. Ã€ Vista \n 2. Parcelado"));
 		if (posicao > 4) {
-			showMessageDialog(null, "Você está na lista de espera!");
+			showMessageDialog(null, "VocÃª estÃ¡ na lista de espera!");
 		}
 	}
 
@@ -92,19 +93,19 @@ public class aplicativo {
 		String cpf = showInputDialog("Informe o CPF do cliente");
 		int posicao_temp = LocalizarCPF(reservas, cpf, posicao);
 		if (posicao_temp == -1) {
-			showMessageDialog(null, cpf + " Não foi encontrado");
+			showMessageDialog(null, cpf + " NÃ£o foi encontrado");
 		} else {
 			showMessageDialog(null, reservas[posicao_temp].GetDados());
 			if (posicao_temp > 4) {
 
-				showMessageDialog(null, "Você está na lista de espera!");
+				showMessageDialog(null, "VocÃª estÃ¡ na lista de espera!");
 			}
 
 		}
 	}
 
 	public static int remover(reserva[] reservas, int posicao) {
-		String cpf = showInputDialog("Qual CPF será deletado?");
+		String cpf = showInputDialog("Qual CPF serÃ¡ deletado?");
 		int posicao_temp = LocalizarCPF(reservas, cpf, posicao);
 		if (posicao_temp == -1) {
 			showMessageDialog(null, cpf + " Inexistente");
